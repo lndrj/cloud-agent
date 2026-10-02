@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: cloud-agent-postgres
+    environment:
+      POSTGRES_USER: collector
+      POSTGRES_PASSWORD: collector
+      POSTGRES_DB: collector
+    ports:
+      - "5433:5432"
+    volumes:
+      - collector_pgdata:/var/lib/postgresql/data
+
+volumes:
+  collector_pgdata:
